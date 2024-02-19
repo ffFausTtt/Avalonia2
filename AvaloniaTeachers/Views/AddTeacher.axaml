@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AvaloniaTeachers.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaTeachers.Views.AddTeacher"
+             x:DataType="vm:MainWindowViewModel">
+
+  <Grid>
+    <StackPanel>
+    <TextBlock FontSize="20" FontWeight="Bold" HorizontalAlignment="Center">Добавление преподавателя</TextBlock>
+      <UserControl Content="{Binding AddTeacherVM.Can}" HorizontalAlignment="Left"></UserControl>
+      <TextBlock>Введите ФИО преподавателя</TextBlock>
+    <TextBox Text="{Binding AddTeacherVM.FIO}"></TextBox>
+      <TextBlock>Введите дату рождения преподавателя</TextBlock>
+      <DatePicker SelectedDate="{Binding AddTeacherVM.Date}"></DatePicker>
+      <TextBlock>Введите пол преподавателя</TextBlock>
+      <ComboBox SelectedIndex="{Binding AddTeacherVM.Gender}">
+        <ComboBoxItem>Мужской</ComboBoxItem>
+        <ComboBoxItem>Женский</ComboBoxItem>
+      </ComboBox>
+      <TextBlock>Введите стаж преподавателя в месяцах</TextBlock>
+      <TextBox Text="{Binding AddTeacherVM.Exp}"></TextBox>
+      <TextBlock>Введите электронную почту преподавателя</TextBlock>
+      <TextBox Text="{Binding AddTeacherVM.Mail}"></TextBox>
+      <TextBlock>Введите номер телефона преподавателя (необязательно)</TextBlock>
+      <TextBox Text="{Binding AddTeacherVM.Phone}"></TextBox>
+      <TextBlock>Выберите предметы, которые будет вести преподаватель</TextBlock>
+      <ListBox ItemsSource="{Binding AddTeacherVM.SelectedSubjects}"></ListBox>
+      <ComboBox ItemsSource="{Binding AddTeacherVM.NewSubjects}"></ComboBox>
+      <Button HorizontalAlignment="Center" Command="{Binding AddTeacherVM.AddNewTeacher}">Добавить</Button>
+      <Button HorizontalAlignment="Center" Command="{Binding NewShowTeachers}">Вернуться назад</Button>
+    </StackPanel>
+  </Grid>
+</UserControl>

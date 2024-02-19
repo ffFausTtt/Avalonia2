@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:vm="using:AvaloniaTeachers.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaTeachers.Views.ShowTeachers"
+             x:DataType="vm:MainWindowViewModel">
+  <Grid RowDefinitions="*,9*">
+    <Button Grid.Row="0" Command="{Binding NewTeacherPage}">Добавить преподавателя</Button>
+    <ListBox ItemsSource="{Binding ShowTeachersVM.TC}" Grid.Row="1">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <Border CornerRadius="5" Width="900" BorderBrush="Red" BorderThickness="2" Padding="15">
+            <StackPanel Orientation="Horizontal">
+              <StackPanel Orientation="Vertical">
+            <TextBlock FontWeight="Bold" Text="Личная информация:"></TextBlock>
+                <TextBlock Text="{Binding FIO}"></TextBlock>
+                <TextBlock Text="{Binding GND}"></TextBlock>
+                <TextBlock Text="{Binding Date}"></TextBlock>
+                <TextBlock Text="{Binding EXP}"></TextBlock>
+                <TextBlock FontWeight="Bold" Text="Контактная информация:"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                  <TextBlock Text="{Binding Mail}"></TextBlock>
+                  <TextBlock Text="{Binding PHN}" Margin="10,0,0,0"></TextBlock>
+                </StackPanel>
+                <TextBlock FontWeight="Bold" Text="Курсы:"></TextBlock>
+                <TextBlock Text="{Binding Curse}"></TextBlock>
+              </StackPanel>
+              <StackPanel Orientation="Vertical" Margin="100,0,100,0">
+                <TextBlock FontWeight="Bold" Text="Предметы преподавателя:"></TextBlock>
+                <TextBlock Text="{Binding SBJ}"></TextBlock>
+              </StackPanel>
+            </StackPanel>
+          </Border>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </Grid>
+</UserControl>
